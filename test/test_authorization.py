@@ -9,4 +9,6 @@ class TestUserAuthorization:
         )
 
         assert response.status_code == 201
+        body = response.json()
+        assert "token" in body
         assert extract_token(response)

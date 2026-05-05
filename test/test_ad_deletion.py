@@ -9,4 +9,6 @@ class TestAdvertisementDeletion:
         )
 
         assert response.status_code == 200
+        body = response.json()
+        assert body
 

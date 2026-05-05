@@ -27,3 +27,5 @@ class TestAdvertisementEditing:
         )
 
         assert response.status_code == 401
+        body = response.json()
+        assert "message" in body or "error" in body
