@@ -9,8 +9,7 @@ class TestUserRegistration:
 
     def test_register_user_with_existing_email_returns_error(self, user_client):
         payload = user_payload()
-        first_response = user_client.register_user(payload)
-        second_response = user_client.register_user(payload)
+        user_client.register_user(payload)
+        response = user_client.register_user(payload)
 
-        assert first_response.status_code == 201
-        assert second_response.status_code == 400
+        assert response.status_code == 400

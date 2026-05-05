@@ -5,26 +5,21 @@ DEFAULT_PASSWORD = "ABOBAPASS"
 
 
 def user_payload():
-    password = DEFAULT_PASSWORD
+    email = generate_email()
     return {
-        "email": generate_email(),
-        "password": password,
-        "submitPassword": password,
+        "email": email,
+        "password": DEFAULT_PASSWORD,
+        "submitPassword": DEFAULT_PASSWORD,
     }
 
 
-def advertisement_payload():
-    return {
-        "name": "Test advertisement",
-        "description": "Created by API autotest",
-        "price": 1500,
-        "category": "Авто",
-        "condition": "Новый",
-        "city": "Москва",
-    }
+ADVERTISEMENT_PAYLOAD = {
+    "name": "Test advertisement",
+    "description": "Created by API autotest",
+    "price": 1500,
+    "category": "Авто",
+    "condition": "Новый",
+    "city": "Москва",
+}
 
-
-def edited_advertisement_payload():
-    payload = advertisement_payload()
-    payload["name"] = "Updated test advertisement"
-    return payload
+EDITED_ADVERTISEMENT_PAYLOAD = {**ADVERTISEMENT_PAYLOAD, "name": "Updated test advertisement"}
